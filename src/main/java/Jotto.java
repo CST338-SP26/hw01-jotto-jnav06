@@ -5,8 +5,14 @@ import java.util.Scanner;
 
 /**
  * @author Josue Nava - Jimenez
- * @version 0.2.1
+ * @version 0.2.2
  * @Since 1/29/26
+ *
+ * File name - Jotto.java
+ * Class - CST 338: Software Design
+ * Assignment - HW01: Jotto
+ * Description: basic Jotto word guessing game that reads 5-letter words from a text file
+ *              calculates scores based on user guesses, keeps track of played words & guesses i think
  **/
 
 public class Jotto {
@@ -16,9 +22,9 @@ public class Jotto {
     private int score;
 
     private String filename;
-    private ArrayList<String> playGuesses = new ArrayList<String>();
-    private ArrayList<String> playWords = new ArrayList<String>();
-    private ArrayList<String> wordList = new ArrayList<String>();
+    private ArrayList<String> playGuesses = new ArrayList<>();
+    private ArrayList<String> playWords = new ArrayList<>();
+    private ArrayList<String> wordList = new ArrayList<>();
 
     private static final boolean DEBUG = true;
 
@@ -43,7 +49,7 @@ public class Jotto {
             scanner.close();
         }
 
-        catch (Exception e) {
+        catch (IOException e) {
             System.out.println("Couldn't open " + filename);
         }
 
@@ -224,7 +230,7 @@ public class Jotto {
 
     public int getLetterCount(String wordGuess) {
         int count = 0;
-        ArrayList<Character> letters = new ArrayList<Character>();
+        ArrayList<Character> letters = new ArrayList<>();
 
         if (wordGuess.equalsIgnoreCase(currentWord)) {
             return 5;
@@ -262,7 +268,7 @@ public class Jotto {
             fw.close();
         }
 
-        catch (Exception e) {
+        catch (IOException e) {
             System.out.println("Error updating word list.");
         }
     }

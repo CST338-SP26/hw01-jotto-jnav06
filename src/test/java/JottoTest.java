@@ -4,11 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 import org.junit.jupiter.api.AfterAll;
@@ -90,7 +86,7 @@ class JottoTest {
   }
 
   @BeforeEach
-  void preTestSetup() {
+  void preTestSetup() throws FileNotFoundException {
     jotto = new Jotto(TEST_GOOD_TXT);
   }
 
@@ -100,7 +96,7 @@ class JottoTest {
   }
 
   @Test
-  void readWords() {
+  void readWords() throws FileNotFoundException {
     ArrayList<String> readWordResults;
     readWordResults = jotto.readWords();
     assertNotNull(readWordResults);

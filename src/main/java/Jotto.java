@@ -63,7 +63,6 @@ public class Jotto {
         boolean isPlaying = true;
 
         System.out.println("Welcome to the game.");
-
         System.out.println("Current Score: " + score);
 
         while (isPlaying) {
@@ -300,7 +299,7 @@ public class Jotto {
     }
 
     void playerGuessScores(ArrayList<String> playGuesses) {
-        StringBuffer sb = new StringBuffer("Guess\t\tScore\n");
+        StringBuffer sb = new StringBuffer("Guess\t\tScore\n"); // i dislike printf so i did this instead
 
         for (String guess : playGuesses) {
             sb.append(guess).append("\t\t").append(getLetterCount(guess)).append("\n");

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Josue Nava - Jimenez
- * @version 0.2.2
+ * @version 0.2.3
  * @Since 1/29/26
  *
  * File name - Jotto.java
@@ -64,8 +64,9 @@ public class Jotto {
 
         System.out.println("Welcome to the game.");
 
+        System.out.println("Current Score: " + score);
+
         while (isPlaying) {
-            System.out.println("Current Score: " + score);
             System.out.println("=-=-=-=-=-=-=-=-=-=-=");
             System.out.println("Choose one of the following:");
             System.out.println("1:\t Start the game");
@@ -137,12 +138,6 @@ public class Jotto {
     }
 
     public String showWordList() {
-
-        if (wordList.isEmpty()) {
-            System.out.println("Current word list:\n");
-            return "Current word list:\n";
-        }
-
         StringBuffer sb = new StringBuffer("Current word list:\n");
 
         for (String word : wordList) {
@@ -305,13 +300,13 @@ public class Jotto {
     }
 
     void playerGuessScores(ArrayList<String> playGuesses) {
-        StringBuffer sb = new StringBuffer("Guess \t Score\n");
+        StringBuffer sb = new StringBuffer("Guess\t\tScore\n");
 
         for (String guess : playGuesses) {
-            sb.append(guess).append(" \t ").append(getLetterCount(guess)).append("\n");
+            sb.append(guess).append("\t\t").append(getLetterCount(guess)).append("\n");
         }
 
-        System.out.println(sb.toString());
+        System.out.print(sb.toString() + "\n\n");
     }
 
     public void setCurrentWord(String currentWord) {

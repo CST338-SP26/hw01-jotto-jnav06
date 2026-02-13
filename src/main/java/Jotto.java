@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Josue Nava - Jimenez
- * @version 0.2.0
+ * @version 0.2.1
  * @Since 1/29/26
  **/
 

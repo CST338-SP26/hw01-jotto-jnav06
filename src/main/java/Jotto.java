@@ -118,7 +118,7 @@ public class Jotto {
 
     public String showPlayedWords() {
         if (playWords.isEmpty()) {
-            return "No words have been played";
+            return "No words have been played.";
         }
 
         StringBuffer sb = new StringBuffer("Current list of played words:\n");
@@ -131,13 +131,13 @@ public class Jotto {
     }
 
     public String showWordList() {
-        System.out.println("Current word list:");
 
         if (wordList.isEmpty()) {
-            return "Word list is empty.";
+            System.out.println("Current word list:\n");
+            return "Current word list:\n";
         }
 
-        StringBuffer sb = new StringBuffer("\n");
+        StringBuffer sb = new StringBuffer("Current word list:\n");
 
         for (String word : wordList) {
             sb.append(word).append("\n");
@@ -226,25 +226,25 @@ public class Jotto {
         int count = 0;
         ArrayList<Character> letters = new ArrayList<Character>();
 
-        if (wordGuess.equals(currentWord)) {
+        if (wordGuess.equalsIgnoreCase(currentWord)) {
             return 5;
         }
 
-        for (char character : currentWord.toCharArray()) {
+        for (char character : currentWord.toLowerCase().toCharArray()) {
             if (!letters.contains(character)) {
                 letters.add(character);
             }
         }
 
-        for (char character : wordGuess.toCharArray()) {
+        for (char character : wordGuess.toLowerCase().toCharArray()) {
             if (letters.contains(character)) {
                 count++;
-                letters.remove((Character)character);
+                letters.remove((Character) character);
             }
         }
 
         return count;
-    } // TODO: return to this
+    }
 
     void updateWordList() {
         try {
